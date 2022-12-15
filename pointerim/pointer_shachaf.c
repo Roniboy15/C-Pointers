@@ -94,6 +94,8 @@ void main()
 }
 */
 
+
+/*
 void sort(int *arr, int size)
 {
     for (int *temp = arr + size - 1; temp > arr; temp--)
@@ -140,4 +142,84 @@ int main(int argc, char const *argv[])
     }
 
     return 0;
+}
+*/
+
+
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+/*
+int main () {
+    char str[] = "Hello you are a nice person!";
+    char * delimeters = " ";
+    
+    char str2[] ="gugus";
+    printf("%s\n", str2);
+    scanf("%s", str2);
+    printf("%s\n", str2);
+
+    char*token;
+    
+    token = strtok(str2, );
+}
+*/
+
+//Exercise to Capitalize first Letter of words
+/*
+int main () {
+    
+    char * strFirst[] = {"diese", "welt", "ist", "wunderschön"};
+    
+    for (char ** pointer = strFirst; pointer < strFirst+sizeof(strFirst)/sizeof(strFirst[0]); pointer++) {
+        printf("%c%s ", **pointer-32, *pointer+1);
+    }
+    
+}
+*/
+
+//aufgabe struct Autos usw. shachaf 15.12
+
+struct Car {
+    int year;
+    int kilometers;
+    char name[20];
+}; typedef struct Car struct_car;
+
+int realPrice(struct_car);
+
+int main () {
+    struct_car c1;
+    scanf("%d%d%s", &c1.year, &c1.kilometers, &c1.name);
+    
+    printf("The price is: %d\n", realPrice(c1));
+    return 0;
+}
+
+int realPrice (struct_car car){
+    int price = 0;
+    char lastLetterofName;
+    char * testP = car.name;
+    while (*testP != 0) {
+        if (*(testP+1) == 0) {
+            lastLetterofName = *testP;
+        }
+        testP++;
+    }
+    
+    if(car.name[0] == 'I') price = 300000;
+    else if(lastLetterofName == 'D') price+=200000;
+    else if(car.name == 'Force') price = 100000;
+    else price = 50000;
+    
+    price -= car.kilometers;
+    
+    int hevdel = 2017-car.year;
+    
+    price -= (hevdel * 10000);
+    
+    return price;
+    
 }
